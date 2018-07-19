@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>tools.mdsd</groupId>
+	<artifactId>eclipse-target-platforms</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+
+	<name>Eclipse Target Platforms</name>
+	<description>Shared target platforms for tycho-based builds.</description>
+	<url>https://mdsd.tools</url>
+	<packaging>pom</packaging>
+
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Stephan Seifermann</name>
+			<email>seifermann@fzi.de</email>
+			<organization>FZI Research Center for Information Technology</organization>
+			<organizationUrl>http://www.fzi.de</organizationUrl>
+		</developer>
+	</developers>
+	
+	<scm>
+		<connection>scm:git:git://github.com/mdsd-tools/maven-build-targetplatforms.git</connection>
+		<developerConnection>scm:git:ssh://github.com/mdsd-tools/maven-build-targetplatforms.git</developerConnection>
+		<url>http://github.com/mdsd-tools/maven-build-targetplatforms/tree/master</url>
+	</scm>
+
+	<profiles>
+
+		<!-- Build configuration of project itself -->
+		<profile>
+			<id>local-build</id>
+			<activation>
+				<file>
+					<exists>profileActivator_LocalBuild_3247</exists>
+				</file>
+			</activation>
+
+			<distributionManagement>
+				<snapshotRepository>
+					<id>ossrh</id>
+					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+				</snapshotRepository>
+				<repository>
+					<id>ossrh</id>
+					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+				</repository>
+			</distributionManagement>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>build-helper-maven-plugin</artifactId>
+						<version>1.3</version>
+						<executions>
+							<execution>
+								<id>attach-artifacts</id>
+								<phase>package</phase>
+								<goals>
+									<goal>attach-artifact</goal>
+								</goals>
+								<configuration>
+									<artifacts>
+										<artifact>
+											<file>targetPlatforms/eclipse-modeling-oxygen-0.target</file>
+											<type>target</type>
+											<classifier>eclipse-modeling-oxygen-0</classifier>
+										</artifact>
+										<artifact>
+											<file>targetPlatforms/eclipse-modeling-oxygen-1.target</file>
+											<type>target</type>
+											<classifier>eclipse-modeling-oxygen-1</classifier>
+										</artifact>
+										<artifact>
+											<file>targetPlatforms/eclipse-modeling-oxygen-2.target</file>
+											<type>target</type>
+											<classifier>eclipse-modeling-oxygen-2</classifier>
+										</artifact>
+										<artifact>
+											<file>targetPlatforms/eclipse-modeling-oxygen-3.target</file>
+											<type>target</type>
+											<classifier>eclipse-modeling-oxygen-3</classifier>
+										</artifact>
+										<artifact>
+											<file>targetPlatforms/eclipse-modeling-photon-0.target</file>
+											<type>target</type>
+											<classifier>eclipse-modeling-photon-0</classifier>
+										</artifact>
+									</artifacts>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
+
+</project>
