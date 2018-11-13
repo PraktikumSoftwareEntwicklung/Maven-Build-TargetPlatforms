@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'sudo docker ps' 
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
