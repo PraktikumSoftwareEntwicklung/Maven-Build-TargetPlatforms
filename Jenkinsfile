@@ -9,7 +9,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'mvn -B -DskipTests clean package'
-		sh 'mvn help:evaluate -Dexpression=settings.localRepository'
+		sh 'mvn --global-settings "/home/jenkinsbuild/settings.xml" help:evaluate -Dexpression=settings.localRepository'
             }
         }
 	stage('Test') {
