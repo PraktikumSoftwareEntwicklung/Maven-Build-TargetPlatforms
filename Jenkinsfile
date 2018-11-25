@@ -9,18 +9,20 @@ pipeline {
         stage('Build') { 
             steps {
                 //sh 'mvn -B -DskipTests clean package'
-				sh 'mvn help:evaluate -Dexpression=settings.localRepository'
+                //sh 'mvn help:evaluate -Dexpression=settings.localRepository'
+                sh 'ls'
+                sh 'printenv'
             }
         }
-	stage('Test') {
-            steps {
-                sh 'mvn test' 
-            }
-            /*post {
-                always {
-                    junit 'target/surefire-reports/*.xml' 
+        stage('Test') {
+                steps {
+                    sh 'mvn test' 
                 }
-            }*/
-	}
+                /*post {
+                    always {
+                        junit 'target/surefire-reports/*.xml' 
+                    }
+                }*/
+        }
     }
 }
