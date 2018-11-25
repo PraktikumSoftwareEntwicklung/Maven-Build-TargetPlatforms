@@ -16,6 +16,7 @@ pipeline {
                 sh 'ls $PWD/?/.m2/'
                 sh 'cp -r $PWD/?/.m2/* $PWD/test/'
                 sh 'ls $PWD/test/'
+                sh 'whoami'
             }
         }
         stage('Test') {
