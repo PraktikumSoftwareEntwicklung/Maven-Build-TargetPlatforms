@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
+                sh 'mkdir $PWD/?/.m2/'
                 sh 'cp -r /var/maven/ $PWD/?/.m2/*'
                 sh 'mvn -B -DskipTests clean package'
                 //sh 'mvn help:evaluate -Dexpression=settings.localRepository'
