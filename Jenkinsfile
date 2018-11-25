@@ -10,8 +10,9 @@ pipeline {
             steps {
                 //sh 'mvn -B -DskipTests clean package'
                 //sh 'mvn help:evaluate -Dexpression=settings.localRepository'
-                sh 'ls'
-                sh 'printenv'
+                sh 'ls /'
+                sh 'ls /root/'
+                sh 'ls /root/.m2/'
             }
         }
         stage('Test') {
