@@ -10,6 +10,8 @@ pipeline {
             steps {
                 sh 'mvn -B -DskipTests clean package'
                 //sh 'mvn help:evaluate -Dexpression=settings.localRepository'
+                sh 'ls -ld $PWD'
+                sh 'ls -ld /var/maven/'
                 sh 'ls /var/'
                 sh 'ls /var/maven/'
                 sh 'ls $PWD/?/.m2/'
