@@ -12,7 +12,7 @@ pipeline {
                 //sh 'mvn help:evaluate -Dexpression=settings.localRepository'
                 sh 'ls -ld $PWD'
                 sh 'ls -ld /var/maven/'
-                sh 'ls -ld /var/maven2/
+                sh 'ls -ld /var/maven2/'
                 sh 'ls /var/'
                 sh 'ls /var/maven/'
                 sh 'ls $PWD/?/.m2/'
