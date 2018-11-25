@@ -10,11 +10,11 @@ pipeline {
             steps {
                 sh 'mvn -B -DskipTests clean package'
                 //sh 'mvn help:evaluate -Dexpression=settings.localRepository'
-                sh 'ls /tmp/'
-                sh 'mkdir /tmp/maven/test'
-                sh 'ls /tmp/maven'
-                sh 'cp -r $PWD/?/.m2/ /tmp/maven/'
-                sh 'ls /tmp/maven/.m2/'
+                sh 'ls $PWD/'
+                sh 'mkdir $PWD/test/'
+                sh 'ls $PWD/test/'
+                sh 'cp -r $PWD/?/.m2/ $PWD/test/'
+                sh 'ls $PWD/test/'
             }
         }
         stage('Test') {
