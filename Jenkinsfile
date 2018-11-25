@@ -11,7 +11,7 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
                 //sh 'mvn help:evaluate -Dexpression=settings.localRepository'
                 sh 'ls /tmp/'
-                sh 'mkdir /tmp/maven'
+                sh 'mkdir /tmp/maven/test'
                 sh 'ls /tmp/maven'
                 sh 'cp -r $PWD/?/.m2/ /tmp/maven/'
                 sh 'ls /tmp/maven/.m2/'
