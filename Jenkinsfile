@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'custom_maven:latest' 
-            args '-v /home/jenkinsbuild/.m2:/var/maven/' 
+            args '-v /home/jenkinsbuild/.m2:/var/maven2/' 
         }
     }
     stages {
@@ -12,6 +12,7 @@ pipeline {
                 //sh 'mvn help:evaluate -Dexpression=settings.localRepository'
                 sh 'ls -ld $PWD'
                 sh 'ls -ld /var/maven/'
+                sh 'ls -ld /var/maven2/
                 sh 'ls /var/'
                 sh 'ls /var/maven/'
                 sh 'ls $PWD/?/.m2/'
