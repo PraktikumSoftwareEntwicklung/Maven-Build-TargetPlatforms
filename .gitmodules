@@ -1,0 +1,3 @@
+[submodule "Jenkinsfiles"]
+	path = Jenkinsfiles
+	url = git@github.com:PraktikumSoftwareEntwicklung/Jenkinsfiles.git
