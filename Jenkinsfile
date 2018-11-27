@@ -13,6 +13,7 @@ pipeline {
                 sh 'cp -r /var/maven/* $PWD/?/.m2/'
                 sh 'mvn -B -DskipTests clean package'
                 sh 'cp -r $PWD/?/.m2/* /var/maven/'
+                sh 'printenv'
             }
         }
         stage('Test') {
