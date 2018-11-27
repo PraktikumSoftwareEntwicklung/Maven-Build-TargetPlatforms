@@ -14,7 +14,6 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
                 sh 'cp -r $PWD/?/.m2/* /var/maven/'
                 sh 'printenv'
-		sh 'ls'
             }
         }
         stage('Test') {
