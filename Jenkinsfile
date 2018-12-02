@@ -15,6 +15,7 @@ pipeline {
                 sh 'cp -r $PWD/?/.m2/* /var/maven/'
                 sh 'printenv'
                 sh 'mvn help:evaluate -Dexpression=settings.localRepository'
+		sh 'ls'
             }
         }
         stage('Test') {
