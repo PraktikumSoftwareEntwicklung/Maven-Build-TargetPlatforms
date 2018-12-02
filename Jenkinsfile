@@ -14,6 +14,7 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
                 sh 'cp -r $PWD/?/.m2/* /var/maven/'
                 sh 'printenv'
+                sh 'mvn help:evaluate -Dexpression=settings.localRepository'
             }
         }
         stage('Test') {
