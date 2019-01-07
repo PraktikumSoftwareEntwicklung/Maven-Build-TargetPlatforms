@@ -7,7 +7,7 @@
 	<artifactId>eclipse-target-platforms</artifactId>
 	<version>0.1.1-SNAPSHOT</version>
 
-	<name>Eclipse Target Platform</name>
+	<name>Eclipse Target Platforms</name>
 	<description>Shared target platforms for tycho-based builds.</description>
 	<url>https://mdsd.tools</url>
 	<packaging>pom</packaging>
